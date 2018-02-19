@@ -6,12 +6,7 @@ $Dashboard = New-UDDashboard -Title "PowerShell Universal Dashboard Clock" -Cont
             $DateTime = Get-Date
 
             # Update the digital clock with the time string
-            Clear-UDElement -Id "digital" -Broadcast
-            Add-UDElement -Broadcast -ParentId "digital" -Content {
-                New-UDElement -Tag "span" -Content {
-                    $DateTime.ToLongTimeString()
-                }
-            }
+            Set-UDElement -Id "digital" -Broadcast -Content {$DateTime.ToLongTimeString()}
 
             $Time = $DateTime.TimeOfDay
 
